@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Soda</title>
+    <style>
+body {background: black; margin: 0; overflow: hidden;
+padding: 0;}
+#app {padding-top: 70px;}
+.select-box {width: 70%; margin: auto; height: 150px;}
+.juice-box {width: 33%; text-align: center; float: left;}
+.juice-type {border: 0; border-radius: 150px; text-align:
+center; width: 140px; line-height: 140px; font-size:
+18px;}
+.pour-bt-box {width: 60%; margin: auto; padding-top: 50px;
+text-align: center;}
+.pour-bt-box button {text-align: center; color:white; border:
+white 2px solid; padding: 20px 0px; width: 60%; background:
+transparent; font-size: 18px; border-radius: 30px;}
+.pour-bt-box label {text-align: center; color:yellow;
+padding: 20px 0; margin-top: 30px; width: 60%;
+background: transparent; font-size: 21px; font-weight:
+lighter; display: inline-block;}
+</style>
+</head>
+
+<body>
+	<div id="app">
+<div class="select-box">
+<div class="juice-box" v-for="beverage of beverages">
+<button class="juice-type" v-on:click="
+select(beverage)" v-bind:style="{color:
+beverage.wcolor, background: beverage.
+bgcolor}">{{beverage.name}}</button>
+</div>
+</div>
+<div class="pour-bt-box">
+<button v-show="!pouring" v-on:click="pour(true)">Pour
+{{selection.name}}</button>
+<button v-show="pouring" v-on:click="pour(false)">Stop
+</button>
+<br>
+<label v-show="pouring">Pouring {{selection.name}}
+</label>
+</div>
+</div>
+<script src="app.js"></script>
+</body>
+
+</html>
